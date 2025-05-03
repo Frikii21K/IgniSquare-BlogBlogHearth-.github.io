@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BlogHearth</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          },
+          colors: {
+            primary: '#1E40AF',
+            accent: '#F59E0B'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors">
+  <header class="p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-primary">BlogHearth</h1>
+    <div class="flex items-center space-x-4">
+      <!-- Toggle modo claro/oscuro -->
+      <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700">
+        🌓
+      </button>
+      <!-- Selector de idioma personalizado -->
+      <select id="custom_translate" class="p-2 border rounded">
+        <option value="">Idioma</option>
+        <option value="es">Español</option>
+        <option value="en">Inglés</option>
+        <option value="fr">Francés</option>
+        <option value="pt">Portugués</option>
+        <option value="de">Alemán</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Contenedor de entradas -->
+  <main id="posts-container" class="p-4 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Aquí se inyectarán las tarjetas de post -->
+  </main>
+
+  <!-- Modal detalle (oculto por defecto) -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl max-w-2xl w-full overflow-y-auto p-6 relative">
+      <button id="modal-close" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 dark:hover:text-gray-100">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Google Translate widget -->
+  <div id="google_translate_element" class="fixed bottom-4 left-4"></div>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Script principal -->
+  <script type="module" src="script.js"></script>
+  <!-- Script de traducción -->
+  <script src="translate.js"></script>
+</body>
+</html>
